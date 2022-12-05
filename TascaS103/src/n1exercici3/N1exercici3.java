@@ -41,9 +41,4 @@ public class N1exercici3 {
 
 	}
 
-	public static boolean busquedaCapital() {
-
-		return true;
-	}
-
 }
