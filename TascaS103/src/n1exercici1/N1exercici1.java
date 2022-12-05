@@ -61,7 +61,7 @@ public class N1exercici1 {
 		mesosHash.add(desembre);
 		mesosHash.add(novembre);
 		
-		System.out.println("\nProvem si accepta duplicats\n");
+		System.out.println("\nVisualitzem si ha acceptat duplicats\n");
 		Iterator<Month> itrHash = mesosHash.iterator();
 		while(itrHash.hasNext()) {
 			System.out.println(itrHash.next().getMonth());
