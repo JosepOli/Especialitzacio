@@ -26,6 +26,16 @@ public class N1exercici1 {
 		}
 
 		System.out.println("El preu total es: " + venda.getPreuTotal());
+		
+		int[] array = new int[10];
+
+		try {
+		  // Intentem accedir a l'element amb índex 11, que és fora dels límits de l'array.
+		  int element = array[11];
+		} catch (ArrayIndexOutOfBoundsException e) {
+		  // Capturam la excepció.
+		  System.out.println("S'ha produït una excepció ArrayIndexOutOfBoundsException: " + e.getMessage());
+		}
 
 	}
 
