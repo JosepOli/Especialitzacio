@@ -2,6 +2,7 @@ package n1exercici2;
 
 import java.io.*;
 import java.util.*;
+import java.text.*;
 
 public class N1exercici2 {
 
@@ -43,7 +44,10 @@ public class N1exercici2 {
 			} else {
 				System.out.println(" (F)");
 			}
-
+			//Utilitzem la classe SimpleDateFormat per a passar de milisegons a un format horari que s'entengui
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+			System.out.println("Última data de modificació: " + sdf.format(fitxer.lastModified()));
+			
 			// Si el fitxer o directori és un directori, recorrem-lo recursivament
 			if (fitxer.isDirectory()) {
 				listaDirectoris(fitxer, nivell + 1);
