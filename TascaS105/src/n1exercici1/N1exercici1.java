@@ -5,28 +5,23 @@ import java.util.*;
 
 public class N1exercici1 {
 
-
-	public class LlistaDirectoris {
-		  // Atribut que representa el directori a llistar
-		  private File directori;
-
-		  // Constructor que reb el path del directori com a paràmetre
-		  // i inicialitza l'atribut directori
-		  public LlistaDirectoris(String path) {
-		    this.directori = new File(path);
-		  }
-
-		  // Mètode que retorna el contingut del directori ordenat
-		  // alfabèticament
-		  public String[] llistaAlfabeticament() {
-		    // Obtenim el contingut del directori com a String array
-		    String[] contingut = directori.list();
-
-		    // Ordenem l'array alfabèticament
-		    Arrays.sort(contingut);
-
-		    // Retornem l'array ordenada
-		    return contingut;
-		  }
+	public static void main(String[] args) {
+		// Primer comprovem que s'ha especificat un directori com a argument
+		if (args.length != 1) {
+			System.out.println("S'ha de especificar un directori com a argument");
+			return;
 		}
+
+		// Obtenim els fitxers del directori especificat (argument en posició zero)
+		File directori = new File(args[0]);
+		File[] fitxers = directori.listFiles();
+
+		// Ordenem els fitxers alfabèticament
+		Arrays.sort(fitxers);
+
+		// Llistem els fitxers del directori
+		for (File fitxer : fitxers) {
+			System.out.println(fitxer.getName());
+		}
+	}
 }
