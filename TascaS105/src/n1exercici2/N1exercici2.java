@@ -46,7 +46,7 @@ public class N1exercici2 {
 			}
 			//Utilitzem la classe SimpleDateFormat per a passar de milisegons a un format horari que s'entengui
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-			System.out.println("Última data de modificació: " + sdf.format(fitxer.lastModified()));
+			System.out.println(" Última data de modificació: " + sdf.format(fitxer.lastModified()));
 			
 			// Si el fitxer o directori és un directori, recorrem-lo recursivament
 			if (fitxer.isDirectory()) {
