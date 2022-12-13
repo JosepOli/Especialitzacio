@@ -66,6 +66,7 @@ public class N1exercici4 {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 			buffer.write(" Última data de modificació: " + sdf.format(fitxer.lastModified()));
 
+			//Afegim la funcionalitat de llegir qualsevol fitxer TXT i mostrar el contingut per consola
 			if (fitxer.getName().toLowerCase().endsWith(".txt")) {
 				FileReader fr = new FileReader(fitxer);
 				BufferedReader br = new BufferedReader(fr);
