@@ -11,7 +11,7 @@ db.Restaurants.find({"address.coord":{$lt:-95.754168}})
 db.Restaurants.find({$and:[{ cuisine: { $ne: "American " } }, {"grades.score":{$gt:70}}, {"address.coord":{$lt:-65.754168}}]})
 db.Restaurants.find({cuisine: { $ne: "American " } , "grades.score":{$gt:70}, "address.coord":{$lt:-65.754168}})
 db.Restaurants.find({$and:[{cuisine: { $ne: "American " } }, {"grades.grade": 'A'}, {borough:{ $ne: 'Brooklyn'}}]}).sort("cuisine")
-db.Restaurants.find({"name": { $regex: /^Wil/}}, {"restaurant_id": 1, "name": 1, "borough": 1, "cuisine": 1}) // Not working
+db.Restaurants.find({"name": { $regex: /^Wil/}}, {"restaurant_id": 1, "name": 1, "borough": 1, "cuisine": 1})
 db.Restaurants.find({"name": { $regex: /ces$/}}, {"restaurant_id": 1, "name": 1, "borough": 1, "cuisine": 1})
 
  
