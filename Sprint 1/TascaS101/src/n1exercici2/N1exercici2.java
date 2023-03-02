@@ -12,8 +12,8 @@ public class N1exercici2 {
 
 		System.out.println(
 				"Ara mateix tenim dos cotxes, com que els seus valors estan donats a la classe, seran iguals. Cotxe1:  "
-						+ cotxe1.getMarca() + " " + cotxe1.getModel() + " " + cotxe1.getPotencia() + " cv i cotxe2: "
-						+ cotxe2.getMarca() + " " + cotxe2.getModel() + " " + cotxe2.getPotencia() + " cv.");
+						+ Cotxe.getMarca() + " " + Cotxe.getModel() + " " + cotxe1.getPotencia() + " cv i cotxe2: "
+						+ Cotxe.getMarca() + " " + Cotxe.getModel() + " " + cotxe2.getPotencia() + " cv.");
 
 		// Seria més correcte utilitzar Cotxe en lloc de cotxe1 i cotxe2 perquè els
 		// valors son tots estàtics i per tant compartits entre els diferents objectes
@@ -24,7 +24,7 @@ public class N1exercici2 {
 		Cotxe.setModel("Leon");
 
 		System.out.println("Com podem veure, els dos cotxes han passat de ser Ibiza a ser Leon. Cotxe1: "
-				+ cotxe1.getModel() + " i cotxe2: " + cotxe2.getModel());
+				+ Cotxe.getModel() + " i cotxe2: " + Cotxe.getModel());
 
 		System.out.println("El correcte seria cridar els atributs estatics de la seguent manera: " + Cotxe.getMarca()
 				+ " " + Cotxe.getModel());
