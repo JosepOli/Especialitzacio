@@ -11,26 +11,26 @@ public class S301N1 {
         Undo undo = Undo.getInstance();
         
         Scanner scanner = new Scanner(System.in);
-        // Bucle infinit per llegir comandes de l'usuari
+        
+        // Bucle infinit per llegir comandes
         while (true) {
-            // Mostrem un missatge per demanar a l'usuari que introdueixi una comanda
-            System.out.print("Introdueix una comanda: ");
+            // Mostrem un missatge per a demanar a l'usuari que introdueixi una comanda
+            System.out.print("Introdueix la teva comanda: ");
             // Llegim la comanda del teclat
-            String command = scanner.nextLine();
+            String comanda = scanner.nextLine();
             // Si l'usuari introdueix "exit", sortim del bucle
-            if (command.equals("exit")) {
+            if (comanda.equals("exit")) {
                 break;
             }
             // Si l'usuari introdueix "history", mostrem la llista de comandes
-            if (command.equals("history")) {
-                undo.listCommands();
+            if (comanda.equals("history")) {
+                undo.listComandes();
             }
             // Si l'usuari introdueix una altra comanda, l'afegim a la llista
             else {
-                undo.addCommand(command);
+                undo.addComanda(comanda);
             }
         }
     }
-	}
 
 }
