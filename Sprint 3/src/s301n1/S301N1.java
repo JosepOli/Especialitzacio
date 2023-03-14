@@ -22,8 +22,8 @@ public class S301N1 {
             if (comanda.equals("exit")) {
                 break;
             }
-            // Si l'usuari introdueix "history", mostrem la llista de comandes
-            if (comanda.equals("history")) {
+            // Si l'usuari introdueix "historic", mostrem la llista de comandes
+            if (comanda.equals("historic")) {
                 undo.listComandes();
             }
             // Si l'usuari introdueix una altra comanda, l'afegim a la llista
