@@ -6,16 +6,15 @@ public class Undo {
 	
     private static Undo instance = null;
     // Llistat per emmagatzemar les comandes introduïdes
-    private List<String> commandList;
+    private List<String> comandaList;
 
     // Constructor privat per evitar que es creïn instàncies de la classe amb 'new'
     private Undo() {
-        commandList = new ArrayList<>();
+        comandaList = new ArrayList<>();
     }
 
     // Mètode static per obtenir la instància única de la classe
     public static Undo getInstance() {
-        // Si la instància no s'ha creat encara, la creem
         if (instance == null) {
             instance = new Undo();
         }
@@ -23,19 +22,19 @@ public class Undo {
         return instance;
     }
 
-    public void addCommand(String command) {
-        commandList.add(command);
+    public void addComanda(String comanda) {
+        comandaList.add(comanda);
     }
 
-    public void removeCommand(int index) {
-        commandList.remove(index);
+    public void removeComanda(int index) {
+        comandaList.remove(index);
     }
 
     // Mètode per mostrar la llista de comandes
-    public void listCommands() {
-        System.out.println("Command history:");
-        for (int i = 0; i < commandList.size(); i++) {
-            System.out.println(i + ": " + commandList.get(i));
+    public void listComandes() {
+        System.out.println("Historic de comandes:");
+        for (int i = 0; i < comandaList.size(); i++) {
+            System.out.println(i + ": " + comandaList.get(i));
         }
     }
 }
