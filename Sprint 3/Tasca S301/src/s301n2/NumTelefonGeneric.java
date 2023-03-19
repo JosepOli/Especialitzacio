@@ -26,12 +26,16 @@ public class NumTelefonGeneric implements NumTelefon {
 	// Retorna el número de telèfon formatejat segons el format del país
 	public String getNumTelefonFormatejat() {
 		String prefix = "";
+		boolean prefixTrobat = false;
+		int i = 0;
 		// Busca el prefix del país
-		for (String[] paisPrefix : paisosPrefixos) {
+		while (i < paisosPrefixos.size() && !prefixTrobat) {
+			String[] paisPrefix = paisosPrefixos.get(i);
 			if (paisPrefix[0].equals(pais)) {
 				prefix = paisPrefix[1];
-				break;
+				prefixTrobat = true;
 			}
+			i++;
 		}
 		// Formateja el número de telèfon
 		String numTelefonFormat = prefix + " " + numTelefon.substring(0, 3) + " " + numTelefon.substring(3, 6) + " "
