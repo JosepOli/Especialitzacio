@@ -5,6 +5,11 @@ public abstract class NumeroTelefon {
 	private String prefix;
 	private String numero;
 
+	public NumeroTelefon(String prefix, String numero) {
+		this.prefix = prefix;
+		this.numero = numero;
+	}
+
 	// Getters i setters
 	public String getPrefix() {
 		return prefix;

@@ -44,8 +44,8 @@ public abstract class Direccio {
     public String getPaís() {
         return pais;
     }
-    public void setPaís(String país) {
-        this.pais = país;
+    public void setPaís(String pais) {
+        this.pais = pais;
     }
 
     // Mètode abstracte per imprimir la informació de la direcció
