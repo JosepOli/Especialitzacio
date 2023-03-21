@@ -6,8 +6,16 @@ public abstract class Direccio {
 	private String ciutat;
 	private String codiPostal;
 	private String provincia;
-	private String país;
+	private String pais;
 
+	 public Direccio(String carrer, String ciutat, String codiPostal, String provincia, String pais) {
+	        this.carrer = carrer;
+	        this.ciutat = ciutat;
+	        this.codiPostal = codiPostal;
+	        this.provincia = provincia;
+	        this.pais = pais;
+	    }
+	 
 	 // Getters i setters
     public String getCarrer() {
         return carrer;
@@ -34,10 +42,10 @@ public abstract class Direccio {
         this.provincia = provincia;
     }
     public String getPaís() {
-        return país;
+        return pais;
     }
     public void setPaís(String país) {
-        this.país = país;
+        this.pais = país;
     }
 
     // Mètode abstracte per imprimir la informació de la direcció
