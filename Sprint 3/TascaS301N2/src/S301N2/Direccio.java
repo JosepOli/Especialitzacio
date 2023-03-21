@@ -41,10 +41,10 @@ public abstract class Direccio {
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
-    public String getPaís() {
+    public String getPais() {
         return pais;
     }
-    public void setPaís(String pais) {
+    public void setPais(String pais) {
         this.pais = pais;
     }
 
