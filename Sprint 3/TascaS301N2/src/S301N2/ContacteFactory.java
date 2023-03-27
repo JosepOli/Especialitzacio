@@ -1,8 +1,12 @@
 package S301N2;
 
-public abstract class ContacteFactory extends AbstractContacteFactory {
+public class ContacteFactory extends AbstractContacteFactory {
 
-    public abstract Direccio crearDireccio(String carrer, String ciutat, String codiPostal, String provincia, String pais);
+    public Direccio crearDireccio(String carrer, String ciutat, String codiPostal, String provincia, String pais) {
+		return null;
+	}
 
-    public abstract NumeroTelefon crearNumeroTelefon(String prefix, String numero);
+    public NumeroTelefon crearNumeroTelefon(String prefix, String numero) {
+		return null;
+	}
 }
