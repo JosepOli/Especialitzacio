@@ -6,22 +6,30 @@ package borsa_observer;
 public class App {
 
 	public static void main(String[] args) {
+		// Creem un AgentBorsa (Observable)
 		AgentBorsa agentBorsa = new AgentBorsa();
 
+		// Creem 3 agències de borsa (Observers)
 		AgenciaBorsa agenciaBorsa1 = new AgenciaBorsa("Agència 1");
 		AgenciaBorsa agenciaBorsa2 = new AgenciaBorsa("Agència 2");
 		AgenciaBorsa agenciaBorsa3 = new AgenciaBorsa("Agència 3");
 
+		// Registrem les agències de borsa perquè rebin notificacions de l'AgentBorsa
 		agentBorsa.registerObserver(agenciaBorsa1);
 		agentBorsa.registerObserver(agenciaBorsa2);
 		agentBorsa.registerObserver(agenciaBorsa3);
 
+		// Notifiquem que la borsa ha pujat i mostrem els missatges de les agències de
+		// borsa
 		System.out.println("Notificant les agències que la borsa ha pujat...");
 		agentBorsa.setEstatBorsa("pujat");
 
+		// Donem de baixa l'agència 2 perquè deixi de rebre notificacions
 		System.out.println("Donant de baixa l'agència 2...");
 		agentBorsa.unregisterObserver(agenciaBorsa2);
 
+		// Notifiquem que la borsa ha baixat i mostrem els missatges de les agències de
+		// borsa restants
 		System.out.println("Notificant les agències que la borsa ha baixat...");
 		agentBorsa.setEstatBorsa("baixat");
 	}
