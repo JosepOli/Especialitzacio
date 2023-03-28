@@ -1,4 +1,4 @@
-package S301N2;
+package s301N2;
 
 //classe abstracta que defineix les operacions per a crear direccions i números de telèfon
 public abstract class AbstractContacteFactory {

@@ -1,4 +1,4 @@
-package S301N2;
+package s301N2;
 
 //Classe abstracta NumeroTelefon que defineix les propietats i mètodes comuns per a tots els números de telèfon
 public abstract class NumeroTelefon {

@@ -1,4 +1,4 @@
-package S301N2;
+package s301N2;
 
 public class ContacteFactory extends AbstractContacteFactory {
 
