@@ -4,11 +4,25 @@
 package borsa_observer;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
-    }
+	public static void main(String[] args) {
+		AgentBorsa agentBorsa = new AgentBorsa();
+
+		AgenciaBorsa agenciaBorsa1 = new AgenciaBorsa("Agència 1");
+		AgenciaBorsa agenciaBorsa2 = new AgenciaBorsa("Agència 2");
+		AgenciaBorsa agenciaBorsa3 = new AgenciaBorsa("Agència 3");
+
+		agentBorsa.registerObserver(agenciaBorsa1);
+		agentBorsa.registerObserver(agenciaBorsa2);
+		agentBorsa.registerObserver(agenciaBorsa3);
+
+		System.out.println("Notificant les agències que la borsa ha pujat...");
+		agentBorsa.setEstatBorsa("pujat");
+
+		System.out.println("Donant de baixa l'agència 2...");
+		agentBorsa.unregisterObserver(agenciaBorsa2);
+
+		System.out.println("Notificant les agències que la borsa ha baixat...");
+		agentBorsa.setEstatBorsa("baixat");
+	}
 }
