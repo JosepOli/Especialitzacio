@@ -40,7 +40,7 @@ public class s301n2 {
 		System.out.println("Introdueix la provincia:");
 		String provincia = scanner.nextLine();
 
-		System.out.println("Introdueix el prefix del número de telèfon:");
+		System.out.println("Introdueix el prefix del número de telèfon: (Opcions per a Espanya:+34 i Franca: +33");
 
 		// Implementem gestió d'errors
 		String prefix;
