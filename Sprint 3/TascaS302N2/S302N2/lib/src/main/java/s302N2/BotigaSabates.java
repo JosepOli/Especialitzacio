@@ -1,6 +1,6 @@
-package S302N2;
+package s302N2;
 
-public class s302n2 {
+public class BotigaSabates {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

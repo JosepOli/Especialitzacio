@@ -1,4 +1,4 @@
-package S302N2;
+package s302N2;
 
 public class TargetaCredit implements MetodePagament {
     @Override
