@@ -20,6 +20,10 @@ public class Floristeria {
 		calcularValorTotalStock();
 	}
 
+	public Floristeria(String nom2) {
+		this.nom = nom2;
+	}
+
 	// Metode per a calcular el valor total de l'stock de la Floristeria
 	private void calcularValorTotalStock() {
 		valorTotalStock = 0;
