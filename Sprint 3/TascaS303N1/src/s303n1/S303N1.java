@@ -1,6 +1,9 @@
 package s303n1;
 
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 public class S303N1 {
 
@@ -211,6 +214,14 @@ public class S303N1 {
 			case 12:
 				// Total Vendes
 				break;
+			case 13:
+			    // Guardar dades
+			    guardarDades(laFloristeria);
+			    break;
+			case 14:
+			    // Carregar dades
+			    laFloristeria = carregarDades();
+			    break;
 			case 0:
 				sortir = true;
 				break;
@@ -219,4 +230,17 @@ public class S303N1 {
 			}
 		}
 	}
+	//Metode per a guardar les dades a un fitxer de text
+	public static void guardarDades(Floristeria floristeria) {
+	    try {
+	        PrintWriter fitxerSortida = new PrintWriter("dades_floristeria.txt");
+	        fitxerSortida.println(floristeria.toString());
+	        fitxerSortida.close();
+	    } catch (FileNotFoundException e) {
+	        System.out.println("Error al guardar les dades: " + e.getMessage());
+	    }
+	}
+
+	//Metode per a carregar dades des d'un fitxer de text
+	
 }
