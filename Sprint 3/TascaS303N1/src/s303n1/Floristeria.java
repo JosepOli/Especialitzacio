@@ -25,6 +25,10 @@ public class Floristeria {
 
 	public Floristeria(String nom2) {
 		this.nom = nom2;
+		this.arbres = new ArrayList<>();
+		this.flors = new ArrayList<>();
+		this.decoracions = new ArrayList<>();
+		this.llistaDeCompres = new ArrayList<>();
 	}
 
 	// Metodes per a obtenir arbres, flors i decoracions pel seu index
@@ -224,7 +228,7 @@ public class Floristeria {
 		return totalVendes;
 	}
 
-	//toString incloent toDataString per a les dades dels productes
+	// toString incloent toDataString per a les dades dels productes
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Floristeria,").append(nom).append("\n");
