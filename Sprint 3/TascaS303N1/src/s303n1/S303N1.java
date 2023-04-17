@@ -6,7 +6,7 @@ public class S303N1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+
 		Scanner scanner = new Scanner(System.in);
 		boolean sortir = false;
 		Floristeria laFloristeria = null;
@@ -32,19 +32,63 @@ public class S303N1 {
 			switch (opcio) {
 			case 1:
 				// Crear Floristeria
-	            System.out.println("Introdueix el nom de la floristeria:");
-	            String nom = scanner.nextLine();
-	            laFloristeria = new Floristeria(nom);
-	            System.out.println("Floristeria " + nom + " creada.");
+				System.out.println("Introdueix el nom de la floristeria:");
+				String nom = scanner.nextLine();
+				laFloristeria = new Floristeria(nom);
+				System.out.println("Floristeria " + nom + " creada.");
 				break;
 			case 2:
 				// Afegir Arbre
+				if (laFloristeria == null) {
+					System.out.println("Has de crear una floristeria primer.");
+				} else {
+					System.out.println("Introdueix l'alçada de l'arbre:");
+					double altura = scanner.nextDouble();
+					System.out.println("Introdueix el preu de l'arbre:");
+					double preuArbre = scanner.nextDouble();
+					scanner.nextLine();
+					Arbre arbre = new Arbre(altura, preuArbre);
+					laFloristeria.afegirArbre(arbre);
+					System.out.println("Arbre afegit.");
+				}
 				break;
 			case 3:
 				// Afegir Flor
+				if (laFloristeria == null) {
+					System.out.println("Has de crear una floristeria primer.");
+				} else {
+					System.out.println("Introdueix el color de la flor:");
+					String color = scanner.nextLine();
+					System.out.println("Introdueix el preu de la flor:");
+					double preuFlor = scanner.nextDouble();
+					scanner.nextLine();
+					Flor flor = new Flor(color, preuFlor);
+					laFloristeria.afegirFlor(flor);
+					System.out.println("Flor afegida.");
+				}
 				break;
 			case 4:
 				// Afegir Decoració
+				if (laFloristeria == null) {
+					System.out.println("Has de crear una floristeria primer.");
+				} else {
+					boolean ismaterial = false;
+					String material = "";
+					while (!ismaterial) {
+						System.out.println("Introdueix el tipus de material (fusta/plastic):");
+						material = scanner.nextLine();
+						if (material.equalsIgnoreCase("plastic") || material.equalsIgnoreCase("fusta")) {
+							ismaterial = true;
+						}
+					}
+					System.out.println("Introdueix el preu de la decoració:");
+					double preuDecoracio = scanner.nextDouble();
+					scanner.nextLine();
+					Decoracio.TipusDeMaterial tipusMaterial = Decoracio.TipusDeMaterial.valueOf(material.toLowerCase());
+					Decoracio decoracio = new Decoracio(tipusMaterial, preuDecoracio);
+					laFloristeria.afegirDecoracio(decoracio);
+					System.out.println("Decoració afegida.");
+				}
 				break;
 			case 5:
 				// Stock
