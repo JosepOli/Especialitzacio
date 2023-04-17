@@ -31,6 +31,8 @@ public class S303N1 {
 			System.out.println("10. Crear Ticket");
 			System.out.println("11. Llista de Compres");
 			System.out.println("12. Total Vendes");
+			System.out.println("13. Guardar Dades");
+			System.out.println("14. Carregar Dades");
 			System.out.println("0. Sortir");
 
 			int opcio = scanner.nextInt();
@@ -64,6 +66,7 @@ public class S303N1 {
 				if (laFloristeria == null) {
 					System.out.println("Has de crear una floristeria primer.");
 				} else {
+					scanner.nextLine();
 					System.out.println("Introdueix el color de la flor:");
 					String color = scanner.nextLine();
 					System.out.println("Introdueix el preu de la flor:");
@@ -82,6 +85,7 @@ public class S303N1 {
 					boolean ismaterial = false;
 					String material = "";
 					while (!ismaterial) {
+						scanner.nextLine();
 						System.out.println("Introdueix el tipus de material (fusta/plastic):");
 						material = scanner.nextLine();
 						if (material.equalsIgnoreCase("plastic") || material.equalsIgnoreCase("fusta")) {
@@ -104,7 +108,6 @@ public class S303N1 {
 				} else {
 					System.out.println("Stock:");
 					laFloristeria.mostrarStock();
-
 				}
 				break;
 			case 6:
@@ -170,6 +173,7 @@ public class S303N1 {
 					boolean acabarCompra = false;
 					while (!acabarCompra) {
 						laFloristeria.mostrarStock();
+						scanner.nextLine();
 						System.out.println(
 								"Escull una categoria (arbre/flor/decoracio) o escriu 'finalitzar' per acabar la compra:");
 						String categoria = scanner.nextLine();
