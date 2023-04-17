@@ -27,6 +27,10 @@ public class Flor {
 		this.preu = preu;
 	}
 
+	public String toDataString() {
+		return "Flor," + color + "," + preu;
+	}
+
 	@Override
 	public String toString() {
 		return "Flor [color=" + color + ", preu=" + preu + "]";

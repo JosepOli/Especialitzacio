@@ -1,6 +1,9 @@
 package s303n1;
 
 import java.util.Scanner;
+
+import s303n1.Decoracio.TipusDeMaterial;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -249,7 +252,7 @@ public class S303N1 {
 	public static void guardarDades(Floristeria floristeria) {
 		try {
 			PrintWriter fitxerSortida = new PrintWriter("dades_floristeria.txt");
-			fitxerSortida.println(floristeria.toString());
+			fitxerSortida.print(floristeria.toString());
 			fitxerSortida.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("Error al guardar les dades: " + e.getMessage());
@@ -262,9 +265,41 @@ public class S303N1 {
 		try {
 			File fitxerEntrada = new File("dades_floristeria.txt");
 			Scanner lectorFitxer = new Scanner(fitxerEntrada);
+
 			if (lectorFitxer.hasNextLine()) {
-				String dadesFloristeria = lectorFitxer.nextLine();
+				String[] dadesFloristeria = lectorFitxer.nextLine().split(",");
+				floristeria = new Floristeria(dadesFloristeria[1]);
 			}
+
+			while (lectorFitxer.hasNextLine()) {
+				String linia = lectorFitxer.nextLine();
+				String[] dades = linia.split(",");
+
+				switch (dades[0]) {
+				case "Arbre":
+					double altura = Double.parseDouble(dades[1]);
+					double preuArbre = Double.parseDouble(dades[2]);
+					Arbre arbre = new Arbre(altura, preuArbre);
+					floristeria.afegirArbre(arbre);
+					break;
+				case "Flor":
+					String color = dades[1];
+					double preuFlor = Double.parseDouble(dades[2]);
+					Flor flor = new Flor(color, preuFlor);
+					floristeria.afegirFlor(flor);
+					break;
+				case "Decoracio":
+					TipusDeMaterial material = TipusDeMaterial.valueOf(dades[1]);
+					double preuDecoracio = Double.parseDouble(dades[2]);
+					Decoracio decoracio = new Decoracio(material, preuDecoracio);
+					floristeria.afegirDecoracio(decoracio);
+					break;
+				default:
+					System.out.println("Tipus de producte desconegut: " + dades[0]);
+					break;
+				}
+			}
+
 			lectorFitxer.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("Error al carregar les dades: " + e.getMessage());

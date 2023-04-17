@@ -214,7 +214,8 @@ public class Floristeria {
 			i++;
 		}
 	}
-	//Metode per a guardar el total de Vendes
+
+	// Metode per a guardar el total de Vendes
 	public double totalVendes() {
 		double totalVendes = 0;
 		for (Ticket ticket : llistaDeCompres) {
@@ -223,4 +224,20 @@ public class Floristeria {
 		return totalVendes;
 	}
 
+	//toString incloent toDataString per a les dades dels productes
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Floristeria,").append(nom).append("\n");
+
+		for (Arbre arbre : arbres) {
+			sb.append(arbre.toDataString()).append("\n");
+		}
+		for (Flor flor : flors) {
+			sb.append(flor.toDataString()).append("\n");
+		}
+		for (Decoracio decoracio : decoracions) {
+			sb.append(decoracio.toDataString()).append("\n");
+		}
+		return sb.toString();
+	}
 }
