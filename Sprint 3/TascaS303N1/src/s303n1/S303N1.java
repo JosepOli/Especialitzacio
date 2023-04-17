@@ -92,6 +92,13 @@ public class S303N1 {
 				break;
 			case 5:
 				// Stock
+				if (laFloristeria == null) {
+					System.out.println("Has de crear una floristeria primer.");
+				} else {
+					System.out.println("Stock:");
+					laFloristeria.mostrarStock();
+
+				}
 				break;
 			case 6:
 				// Retirar Arbre

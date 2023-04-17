@@ -27,4 +27,9 @@ public class Flor {
 		this.preu = preu;
 	}
 
+	@Override
+	public String toString() {
+		return "Flor [color=" + color + ", preu=" + preu + "]";
+	}
+
 }

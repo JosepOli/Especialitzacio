@@ -31,4 +31,9 @@ public class Decoracio {
 		this.preu = preu;
 	}
 
+	@Override
+	public String toString() {
+		return "Decoracio [material=" + material + ", preu=" + preu + "]";
+	}
+
 }

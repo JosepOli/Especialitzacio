@@ -27,4 +27,9 @@ public class Arbre {
 		this.preu = preu;
 	}
 
+	@Override
+	public String toString() {
+		return "Arbre [altura=" + altura + ", preu=" + preu + "]";
+	}
+
 }
