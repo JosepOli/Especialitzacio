@@ -121,13 +121,14 @@ public class Floristeria {
 			System.out.println("  " + arbre);
 		}
 	}
+
 	public void mostrarStockFlors() {
 		System.out.println("Stock de flors:");
 		for (Flor flor : flors) {
 			System.out.println("  " + flor);
 		}
 	}
-	
+
 	public void mostrarStockDecoracions() {
 		System.out.println("Stock de decoracions:");
 		for (Decoracio decoracio : decoracions) {
@@ -135,4 +136,39 @@ public class Floristeria {
 		}
 	}
 
+	// Metodes per a eliminar objectes de l'stock i actualitzar el valortotal
+	public boolean retirarArbre(int index) {
+		if (index >= 0 && index < arbres.size()) {
+			Arbre arbreARetirar = arbres.get(index);
+			double preuArbre = arbreARetirar.getPreu();
+			arbres.remove(index);
+			valorTotalStock -= preuArbre;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean retirarFlor(int index) {
+		if (index >= 0 && index < flors.size()) {
+			Flor florARetirar = flors.get(index);
+			double preuFlor = florARetirar.getPreu();
+			flors.remove(index);
+			valorTotalStock -= preuFlor;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public boolean retirarDecoracio(int index) {
+		if (index >= 0 && index < decoracions.size()) {
+			Decoracio decoracioARetirar = decoracions.get(index);
+			double preuDecoracio = decoracioARetirar.getPreu();
+			decoracions.remove(index);
+			valorTotalStock -= preuDecoracio;
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
