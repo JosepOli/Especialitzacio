@@ -258,6 +258,8 @@ public class S303N1 {
 			PrintWriter fitxerSortida = new PrintWriter("dades_floristeria.txt");
 			fitxerSortida.print(floristeria.toString());
 			fitxerSortida.close();
+			System.out.println(
+					"Dades guardades correctament");
 		} catch (FileNotFoundException e) {
 			System.out.println("Error al guardar les dades: " + e.getMessage());
 		}

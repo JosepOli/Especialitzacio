@@ -1,0 +1,4 @@
+Floristeria,Paqui
+Arbre,2.0,50.0
+Flor,blau,2.0
+Flor,verd,1.0
