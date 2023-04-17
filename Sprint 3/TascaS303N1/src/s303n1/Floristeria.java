@@ -1,5 +1,6 @@
 package s303n1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Floristeria {
@@ -8,6 +9,7 @@ public class Floristeria {
 	private List<Arbre> arbres;
 	private List<Flor> flors;
 	private List<Decoracio> decoracions;
+	private List<Ticket> llistaDeCompres;
 	private double valorTotalStock;
 
 	public Floristeria(String nom, List<Arbre> arbres, List<Flor> flors, List<Decoracio> decoracions,
@@ -17,6 +19,7 @@ public class Floristeria {
 		this.arbres = arbres;
 		this.flors = flors;
 		this.decoracions = decoracions;
+		this.llistaDeCompres = new ArrayList<>();
 		calcularValorTotalStock();
 	}
 
@@ -197,6 +200,18 @@ public class Floristeria {
 		decoracions.add(decoracio);
 		valorTotalStock += decoracio.getPreu();
 	}
+	//Metodes per a afegir tickets al llistat de compres i per a mostrar el llistat
+	public void afegirTicket(Ticket ticket) {
+		llistaDeCompres.add(ticket);
+	}
 
+	public void mostrarLlistaDeCompres() {
+		System.out.println("Llista de compres de la floristeria " + nom + ":");
+		int i = 1;
+		for (Ticket ticket : llistaDeCompres) {
+			System.out.println(i + ". " + ticket);
+			i++;
+		}
+	}
 
 }

@@ -206,10 +206,16 @@ public class S303N1 {
 						}
 					}
 					System.out.println("Compra finalitzada. Resum del ticket: " + ticket);
+					laFloristeria.afegirTicket(ticket);
 				}
 				break;
 			case 11:
 				// Llista de Compres
+				if (laFloristeria == null) {
+					System.out.println("Has de crear una floristeria primer.");
+				} else {
+					laFloristeria.mostrarLlistaDeCompres();
+				}
 				break;
 			case 12:
 				// Total Vendes
