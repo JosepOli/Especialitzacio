@@ -113,4 +113,26 @@ public class Floristeria {
 		}
 	}
 
+	// Metodes per a mostrar l'Stock d'objectes independentment de cara a
+	// eliminarlos
+	public void mostrarStockArbres() {
+		System.out.println("Stock d'arbres:");
+		for (Arbre arbre : arbres) {
+			System.out.println("  " + arbre);
+		}
+	}
+	public void mostrarStockFlors() {
+		System.out.println("Stock de flors:");
+		for (Flor flor : flors) {
+			System.out.println("  " + flor);
+		}
+	}
+	
+	public void mostrarStockDecoracions() {
+		System.out.println("Stock de decoracions:");
+		for (Decoracio decoracio : decoracions) {
+			System.out.println("  " + decoracio);
+		}
+	}
+
 }

@@ -102,6 +102,15 @@ public class S303N1 {
 				break;
 			case 6:
 				// Retirar Arbre
+				if (laFloristeria == null) {
+					System.out.println("Has de crear una floristeria primer.");
+				} else {
+					System.out.println("Introdueix l'índex de l'arbre a retirar:");
+					int index = scanner.nextInt();
+					scanner.nextLine(); // Per consumir el newline restant després de nextInt()
+					laFloristeria.retirarArbre(index, Arbre.class);
+					System.out.println("Arbre retirat.");
+				}
 				break;
 			case 7:
 				// Retirar Flor
