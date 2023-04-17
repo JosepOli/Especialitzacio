@@ -117,39 +117,46 @@ public class S303N1 {
 				break;
 			case 7:
 				// Retirar Flor
-				  if (laFloristeria == null) {
-				        System.out.println("Has de crear una floristeria primer.");
-				    } else {
-				        laFloristeria.mostrarStockFlors();
-				        System.out.println("Introdueix l'índex de la flor que vols retirar:");
-				        int indexFlor = scanner.nextInt();
-				        if (laFloristeria.retirarFlor(indexFlor)) {
-				            System.out.println("Flor retirada correctament.");
-				        } else {
-				            System.out.println("No s'ha pogut retirar la flor. Si us plau, revisa l'índex introduït.");
-				        }
-				    }
+				if (laFloristeria == null) {
+					System.out.println("Has de crear una floristeria primer.");
+				} else {
+					laFloristeria.mostrarStockFlors();
+					System.out.println("Introdueix l'índex de la flor que vols retirar:");
+					int indexFlor = scanner.nextInt();
+					if (laFloristeria.retirarFlor(indexFlor)) {
+						System.out.println("Flor retirada correctament.");
+					} else {
+						System.out.println("No s'ha pogut retirar la flor. Si us plau, revisa l'índex introduït.");
+					}
+				}
 				break;
 			case 8:
 				// Retirar Decoració
-				 if (laFloristeria == null) {
-				        System.out.println("Has de crear una floristeria primer.");
-				    } else {
-				        laFloristeria.mostrarStockDecoracions();
-				        System.out.println("Introdueix l'índex de la decoracio que vols retirar:");
-				        int indexDecoracio = scanner.nextInt();
-				        if (laFloristeria.retirarDecoracio(indexDecoracio)) {
-				            System.out.println("Decoracio retirada correctament.");
-				        } else {
-				            System.out.println("No s'ha pogut retirar la decoracio. Si us plau, revisa l'índex introduït.");
-				        }
-				    }
+				if (laFloristeria == null) {
+					System.out.println("Has de crear una floristeria primer.");
+				} else {
+					laFloristeria.mostrarStockDecoracions();
+					System.out.println("Introdueix l'índex de la decoracio que vols retirar:");
+					int indexDecoracio = scanner.nextInt();
+					if (laFloristeria.retirarDecoracio(indexDecoracio)) {
+						System.out.println("Decoracio retirada correctament.");
+					} else {
+						System.out.println("No s'ha pogut retirar la decoracio. Si us plau, revisa l'índex introduït.");
+					}
+				}
 				break;
 			case 9:
 				// Valor Total
+				if (laFloristeria == null) {
+					System.out.println("Has de crear una floristeria primer.");
+				} else {
+					double valorTotal = laFloristeria.getValorTotalStock();
+					System.out.println("El valor total de la floristeria és: " + valorTotal);
+				}
 				break;
 			case 10:
 				// Crear Ticket
+				
 				break;
 			case 11:
 				// Llista de Compres
