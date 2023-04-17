@@ -215,13 +215,13 @@ public class S303N1 {
 				// Total Vendes
 				break;
 			case 13:
-			    // Guardar dades
-			    guardarDades(laFloristeria);
-			    break;
+				// Guardar dades
+				guardarDades(laFloristeria);
+				break;
 			case 14:
-			    // Carregar dades
-			    laFloristeria = carregarDades();
-			    break;
+				// Carregar dades
+				laFloristeria = carregarDades();
+				break;
 			case 0:
 				sortir = true;
 				break;
@@ -230,17 +230,32 @@ public class S303N1 {
 			}
 		}
 	}
-	//Metode per a guardar les dades a un fitxer de text
+
+	// Metode per a guardar les dades a un fitxer de text
 	public static void guardarDades(Floristeria floristeria) {
-	    try {
-	        PrintWriter fitxerSortida = new PrintWriter("dades_floristeria.txt");
-	        fitxerSortida.println(floristeria.toString());
-	        fitxerSortida.close();
-	    } catch (FileNotFoundException e) {
-	        System.out.println("Error al guardar les dades: " + e.getMessage());
-	    }
+		try {
+			PrintWriter fitxerSortida = new PrintWriter("dades_floristeria.txt");
+			fitxerSortida.println(floristeria.toString());
+			fitxerSortida.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Error al guardar les dades: " + e.getMessage());
+		}
 	}
 
-	//Metode per a carregar dades des d'un fitxer de text
-	
+	// Metode per a carregar dades des d'un fitxer de text
+	public static Floristeria carregarDades() {
+		Floristeria floristeria = null;
+		try {
+			File fitxerEntrada = new File("dades_floristeria.txt");
+			Scanner lectorFitxer = new Scanner(fitxerEntrada);
+			if (lectorFitxer.hasNextLine()) {
+				String dadesFloristeria = lectorFitxer.nextLine();
+			}
+			lectorFitxer.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Error al carregar les dades: " + e.getMessage());
+		}
+		return floristeria;
+	}
+
 }
