@@ -24,6 +24,31 @@ public class Floristeria {
 		this.nom = nom2;
 	}
 
+	// Metodes per a obtenir arbres, flors i decoracions pel seu index
+	public Arbre getArbre(int index) {
+		if (index >= 0 && index < arbres.size()) {
+			return arbres.get(index);
+		} else {
+			return null;
+		}
+	}
+
+	public Flor getFlor(int index) {
+		if (index >= 0 && index < flors.size()) {
+			return flors.get(index);
+		} else {
+			return null;
+		}
+	}
+
+	public Decoracio getDecoracio(int index) {
+		if (index >= 0 && index < decoracions.size()) {
+			return decoracions.get(index);
+		} else {
+			return null;
+		}
+	}
+
 	// Metode per a calcular el valor total de l'stock de la Floristeria
 	private void calcularValorTotalStock() {
 		valorTotalStock = 0;
@@ -160,6 +185,7 @@ public class Floristeria {
 			return false;
 		}
 	}
+
 	public boolean retirarDecoracio(int index) {
 		if (index >= 0 && index < decoracions.size()) {
 			Decoracio decoracioARetirar = decoracions.get(index);
