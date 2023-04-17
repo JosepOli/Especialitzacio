@@ -35,6 +35,7 @@ public class S303N1 {
 			switch (opcio) {
 			case 1:
 				// Crear Floristeria
+				scanner.nextLine();
 				System.out.println("Introdueix el nom de la floristeria:");
 				String nom = scanner.nextLine();
 				laFloristeria = new Floristeria(nom);
