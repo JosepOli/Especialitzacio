@@ -156,7 +156,54 @@ public class S303N1 {
 				break;
 			case 10:
 				// Crear Ticket
-				
+				if (laFloristeria == null) {
+					System.out.println("Has de crear una floristeria primer.");
+				} else {
+					Ticket ticket = new Ticket();
+					boolean acabarCompra = false;
+					while (!acabarCompra) {
+						laFloristeria.mostrarStock();
+						System.out.println(
+								"Escull una categoria (arbre/flor/decoracio) o escriu 'finalitzar' per acabar la compra:");
+						String categoria = scanner.nextLine();
+						if (categoria.equalsIgnoreCase("finalitzar")) {
+							acabarCompra = true;
+						} else {
+							System.out.println("Introdueix l'índex del producte que vols afegir al ticket:");
+							int index = scanner.nextInt();
+							scanner.nextLine();
+
+							if (categoria.equalsIgnoreCase("arbre")) {
+								Arbre arbre = laFloristeria.getArbre(index);
+								if (arbre != null) {
+									ticket.afegirElement(arbre, arbre.getPreu());
+									System.out.println("Arbre afegit al ticket.");
+								} else {
+									System.out.println("Índex incorrecte.");
+								}
+							} else if (categoria.equalsIgnoreCase("flor")) {
+								Flor flor = laFloristeria.getFlor(index);
+								if (flor != null) {
+									ticket.afegirElement(flor, flor.getPreu());
+									System.out.println("Flor afegida al ticket.");
+								} else {
+									System.out.println("Índex incorrecte.");
+								}
+							} else if (categoria.equalsIgnoreCase("decoracio")) {
+								Decoracio decoracio = laFloristeria.getDecoracio(index);
+								if (decoracio != null) {
+									ticket.afegirElement(decoracio, decoracio.getPreu());
+									System.out.println("Decoració afegida al ticket.");
+								} else {
+									System.out.println("Índex incorrecte.");
+								}
+							} else {
+								System.out.println("Categoria incorrecta. Si us plau, torna a intentar-ho.");
+							}
+						}
+					}
+					System.out.println("Compra finalitzada. Resum del ticket: " + ticket);
+				}
 				break;
 			case 11:
 				// Llista de Compres
