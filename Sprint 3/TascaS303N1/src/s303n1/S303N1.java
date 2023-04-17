@@ -106,18 +106,44 @@ public class S303N1 {
 					System.out.println("Has de crear una floristeria primer.");
 				} else {
 					laFloristeria.mostrarStockArbres();
-					System.out.println("Introdueix l'índex de l'arbre a retirar:");
-					int index = scanner.nextInt();
-					scanner.nextLine(); // Per consumir el newline restant després de nextInt()
-					laFloristeria.retirarArbre(index, Arbre.class);
-					System.out.println("Arbre retirat.");
+					System.out.println("Introdueix l'índex de l'arbre que vols retirar:");
+					int indexArbre = scanner.nextInt();
+					if (laFloristeria.retirarArbre(indexArbre)) {
+						System.out.println("Arbre retirat correctament.");
+					} else {
+						System.out.println("No s'ha pogut retirar l'arbre. Si us plau, revisa l'índex introduït.");
+					}
 				}
 				break;
 			case 7:
 				// Retirar Flor
+				  if (laFloristeria == null) {
+				        System.out.println("Has de crear una floristeria primer.");
+				    } else {
+				        laFloristeria.mostrarStockFlors();
+				        System.out.println("Introdueix l'índex de la flor que vols retirar:");
+				        int indexFlor = scanner.nextInt();
+				        if (laFloristeria.retirarFlor(indexFlor)) {
+				            System.out.println("Flor retirada correctament.");
+				        } else {
+				            System.out.println("No s'ha pogut retirar la flor. Si us plau, revisa l'índex introduït.");
+				        }
+				    }
 				break;
 			case 8:
 				// Retirar Decoració
+				 if (laFloristeria == null) {
+				        System.out.println("Has de crear una floristeria primer.");
+				    } else {
+				        laFloristeria.mostrarStockDecoracions();
+				        System.out.println("Introdueix l'índex de la decoracio que vols retirar:");
+				        int indexDecoracio = scanner.nextInt();
+				        if (laFloristeria.retirarDecoracio(indexDecoracio)) {
+				            System.out.println("Decoracio retirada correctament.");
+				        } else {
+				            System.out.println("No s'ha pogut retirar la decoracio. Si us plau, revisa l'índex introduït.");
+				        }
+				    }
 				break;
 			case 9:
 				// Valor Total
