@@ -49,36 +49,6 @@ public class Floristeria {
 		}
 	}
 
-	// Metode per a calcular el valor total de l'stock de la Floristeria
-	private void calcularValorTotalStock() {
-		valorTotalStock = 0;
-		for (Arbre arbre : arbres) {
-			valorTotalStock += arbre.getPreu();
-		}
-		for (Flor flor : flors) {
-			valorTotalStock += flor.getPreu();
-		}
-		for (Decoracio decoracio : decoracions) {
-			valorTotalStock += decoracio.getPreu();
-		}
-	}
-
-	// Metodes per a afegir arbres,flors i decoracions i actualitzar el preu
-	public void afegirArbre(Arbre arbre) {
-		arbres.add(arbre);
-		valorTotalStock += arbre.getPreu();
-	}
-
-	public void afegirFlor(Flor flor) {
-		flors.add(flor);
-		valorTotalStock += flor.getPreu();
-	}
-
-	public void afegirDecoracio(Decoracio decoracio) {
-		decoracions.add(decoracio);
-		valorTotalStock += decoracio.getPreu();
-	}
-
 	// Getters i setters amb invocacio del metode calcularValorTotalStock per a
 	// actualitzar el valor quan actualitzem el llistat
 
@@ -197,4 +167,36 @@ public class Floristeria {
 			return false;
 		}
 	}
+
+	// Metode per a calcular el valor total de l'stock de la Floristeria
+	private void calcularValorTotalStock() {
+		valorTotalStock = 0;
+		for (Arbre arbre : arbres) {
+			valorTotalStock += arbre.getPreu();
+		}
+		for (Flor flor : flors) {
+			valorTotalStock += flor.getPreu();
+		}
+		for (Decoracio decoracio : decoracions) {
+			valorTotalStock += decoracio.getPreu();
+		}
+	}
+
+	// Metodes per a afegir arbres,flors i decoracions i actualitzar el preu
+	public void afegirArbre(Arbre arbre) {
+		arbres.add(arbre);
+		valorTotalStock += arbre.getPreu();
+	}
+
+	public void afegirFlor(Flor flor) {
+		flors.add(flor);
+		valorTotalStock += flor.getPreu();
+	}
+
+	public void afegirDecoracio(Decoracio decoracio) {
+		decoracions.add(decoracio);
+		valorTotalStock += decoracio.getPreu();
+	}
+
+
 }
