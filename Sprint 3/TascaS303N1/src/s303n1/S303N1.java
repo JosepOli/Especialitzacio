@@ -219,6 +219,13 @@ public class S303N1 {
 				break;
 			case 12:
 				// Total Vendes
+				if (laFloristeria == null) {
+					System.out.println("Has de crear una floristeria primer.");
+				} else {
+					double totalVendes = laFloristeria.totalVendes();
+					System.out.println(
+							"El total de vendes de la floristeria " + laFloristeria.getNom() + " és: " + totalVendes);
+				}
 				break;
 			case 13:
 				// Guardar dades

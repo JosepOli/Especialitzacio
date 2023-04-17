@@ -200,7 +200,8 @@ public class Floristeria {
 		decoracions.add(decoracio);
 		valorTotalStock += decoracio.getPreu();
 	}
-	//Metodes per a afegir tickets al llistat de compres i per a mostrar el llistat
+
+	// Metodes per a afegir tickets al llistat de compres i per a mostrar el llistat
 	public void afegirTicket(Ticket ticket) {
 		llistaDeCompres.add(ticket);
 	}
@@ -212,6 +213,14 @@ public class Floristeria {
 			System.out.println(i + ". " + ticket);
 			i++;
 		}
+	}
+	//Metode per a guardar el total de Vendes
+	public double totalVendes() {
+		double totalVendes = 0;
+		for (Ticket ticket : llistaDeCompres) {
+			totalVendes += ticket.getImportTotal();
+		}
+		return totalVendes;
 	}
 
 }
