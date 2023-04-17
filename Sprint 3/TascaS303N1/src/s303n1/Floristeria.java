@@ -20,6 +20,7 @@ public class Floristeria {
 		calcularValorTotalStock();
 	}
 
+	// Metode per a calcular el valor total de l'stock de la Floristeria
 	private void calcularValorTotalStock() {
 		valorTotalStock = 0;
 		for (Arbre arbre : arbres) {
@@ -31,6 +32,64 @@ public class Floristeria {
 		for (Decoracio decoracio : decoracions) {
 			valorTotalStock += decoracio.getPreu();
 		}
+	}
+
+	// Metodes per a afegir arbres,flors i decoracions i actualitzar el preu
+	public void afegirArbre(Arbre arbre) {
+		arbres.add(arbre);
+		valorTotalStock += arbre.getPreu();
+	}
+
+	public void afegirFlor(Flor flor) {
+		flors.add(flor);
+		valorTotalStock += flor.getPreu();
+	}
+
+	public void afegirDecoracio(Decoracio decoracio) {
+		decoracions.add(decoracio);
+		valorTotalStock += decoracio.getPreu();
+	}
+
+	// Getters i setters amb invocacio del metode calcularValorTotalStock per a
+	// actualitzar el valor quan actualitzem el llistat
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public List<Arbre> getArbres() {
+		return arbres;
+	}
+
+	public void setArbres(List<Arbre> arbres) {
+		this.arbres = arbres;
+		calcularValorTotalStock();
+	}
+
+	public List<Flor> getFlors() {
+		return flors;
+	}
+
+	public void setFlors(List<Flor> flors) {
+		this.flors = flors;
+		calcularValorTotalStock();
+	}
+
+	public List<Decoracio> getDecoracions() {
+		return decoracions;
+	}
+
+	public void setDecoracions(List<Decoracio> decoracions) {
+		this.decoracions = decoracions;
+		calcularValorTotalStock();
+	}
+
+	public double getValorTotalStock() {
+		return valorTotalStock;
 	}
 
 }

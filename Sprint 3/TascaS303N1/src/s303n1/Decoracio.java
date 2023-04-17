@@ -1,10 +1,10 @@
 package s303n1;
 
 public class Decoracio {
-	
-	public enum TipusDeMaterial{
-		fusta,
-		plastic
+
+	// Creem un enum per a delimitar els tipus de material que es podran escollir
+	public enum TipusDeMaterial {
+		fusta, plastic
 	}
 
 	private TipusDeMaterial material;
