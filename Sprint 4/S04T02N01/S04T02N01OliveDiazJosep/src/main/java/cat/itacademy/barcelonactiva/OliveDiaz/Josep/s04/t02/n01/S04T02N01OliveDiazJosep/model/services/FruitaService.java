@@ -2,12 +2,13 @@ package cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.S04T02N01OliveD
 
 import org.springframework.stereotype.Service;
 import java.util.List;
-import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.S04T02N01OliveDiazJosep.model.repository.*;
+import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.S04T02N01OliveDiazJosep.model.repository.FruitaRepository;
 import exceptions.FruitaNotFoundException;
-import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.S04T02N01OliveDiazJosep.model.domain.*;
+import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.S04T02N01OliveDiazJosep.model.domain.Fruita;
 
 @Service
 public class FruitaService {
+
 	private final FruitaRepository fruitaRepository;
 
 	public FruitaService(FruitaRepository fruitaRepository) {

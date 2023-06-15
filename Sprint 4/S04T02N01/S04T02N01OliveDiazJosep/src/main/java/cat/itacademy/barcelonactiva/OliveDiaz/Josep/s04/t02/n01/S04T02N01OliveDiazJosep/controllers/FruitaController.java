@@ -42,9 +42,9 @@ public class FruitaController {
 	public List<Fruita> getAllFruita() {
 		return fruitaService.getAllFruita();
 	}
-	
+
 	@ExceptionHandler(FruitaNotFoundException.class)
 	public ResponseEntity<String> handleFruitaNotFound(FruitaNotFoundException ex) {
-	    return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
 	}
 }
