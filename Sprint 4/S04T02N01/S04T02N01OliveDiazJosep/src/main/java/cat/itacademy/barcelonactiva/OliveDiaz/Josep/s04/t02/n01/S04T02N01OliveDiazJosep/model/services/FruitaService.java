@@ -19,14 +19,17 @@ public class FruitaService {
 	}
 
 	public Fruita update(Fruita updatedFruita, int id) { // Actualitzem fruita
-        Fruita existingFruita = fruitaRepository.findById(id)
-                .orElseThrow(() -> new FruitaNotFoundException("No fruita with id: " + id));
-        existingFruita.setNom(updatedFruita.getNom());
-        existingFruita.setQuantitatQuilos(updatedFruita.getQuantitatQuilos());
-        return fruitaRepository.save(existingFruita);
-    }
+		Fruita existingFruita = fruitaRepository.findById(id)
+				.orElseThrow(() -> new FruitaNotFoundException("No fruita with id: " + id));
+		existingFruita.setNom(updatedFruita.getNom());
+		existingFruita.setQuantitatQuilos(updatedFruita.getQuantitatQuilos());
+		return fruitaRepository.save(existingFruita);
+	}
 
 	public void delete(int id) { // Eliminem fruita amb id
+		if (!fruitaRepository.existsById(id)) {
+			throw new FruitaNotFoundException("No fruita with id: " + id);
+		}
 		fruitaRepository.deleteById(id);
 	}
 
