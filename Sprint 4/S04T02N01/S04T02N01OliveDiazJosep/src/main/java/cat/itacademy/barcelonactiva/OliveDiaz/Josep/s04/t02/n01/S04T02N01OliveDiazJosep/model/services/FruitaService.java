@@ -28,6 +28,10 @@ public class FruitaService {
 		fruitaRepository.deleteById(id);
 	}
 
+	public Fruita getOneFruita(int id) { // Retornem una fruita amb id
+		return fruitaRepository.getReferenceById(id);
+	}
+
 	public List<Fruita> getAllFruita() { // Retornem totes les fruites
 		return fruitaRepository.findAll();
 	}
