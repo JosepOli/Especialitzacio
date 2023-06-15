@@ -34,7 +34,7 @@ public class FruitaService {
 	}
 
 	public Fruita getOneFruita(int id) { // Retornem una fruita amb id
-		return fruitaRepository.getReferenceById(id);
+		return fruitaRepository.findById(id).orElseThrow(() -> new FruitaNotFoundException("No fruita with id: " + id));
 	}
 
 	public List<Fruita> getAllFruita() { // Retornem totes les fruites
