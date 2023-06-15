@@ -1,7 +1,10 @@
 package cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.S04T02N01OliveDiazJosep.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.S04T02N01OliveDiazJosep.model.services.FruitaService;
+import exceptions.FruitaNotFoundException;
 import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.S04T02N01OliveDiazJosep.model.domain.Fruita;
 import java.util.List;
 
@@ -38,5 +41,10 @@ public class FruitaController {
 	@GetMapping("/getAll")
 	public List<Fruita> getAllFruita() {
 		return fruitaService.getAllFruita();
+	}
+	
+	@ExceptionHandler(FruitaNotFoundException.class)
+	public ResponseEntity<String> handleFruitaNotFound(FruitaNotFoundException ex) {
+	    return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
 	}
 }
