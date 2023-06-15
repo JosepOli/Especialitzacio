@@ -3,6 +3,7 @@ package cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.S04T02N01OliveD
 import org.springframework.stereotype.Service;
 import java.util.List;
 import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.S04T02N01OliveDiazJosep.model.repository.*;
+import exceptions.FruitaNotFoundException;
 import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.S04T02N01OliveDiazJosep.model.domain.*;
 
 @Service
@@ -18,11 +19,12 @@ public class FruitaService {
 	}
 
 	public Fruita update(Fruita updatedFruita, int id) { // Actualitzem fruita
-		Fruita existingFruita = fruitaRepository.getReferenceById(id);
-		existingFruita.setNom(updatedFruita.getNom());
-		existingFruita.setQuantitatQuilos(updatedFruita.getQuantitatQuilos());
-		return fruitaRepository.save(existingFruita);
-	}
+        Fruita existingFruita = fruitaRepository.findById(id)
+                .orElseThrow(() -> new FruitaNotFoundException("No fruita with id: " + id));
+        existingFruita.setNom(updatedFruita.getNom());
+        existingFruita.setQuantitatQuilos(updatedFruita.getQuantitatQuilos());
+        return fruitaRepository.save(existingFruita);
+    }
 
 	public void delete(int id) { // Eliminem fruita amb id
 		fruitaRepository.deleteById(id);
