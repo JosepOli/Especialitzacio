@@ -3,7 +3,6 @@ package controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import exceptions.FruitaNotFoundException;
 import model.domain.Fruita;
@@ -15,8 +14,11 @@ import java.util.List;
 @RequestMapping("/fruita")
 public class FruitaController {
 
-	@Autowired
-	private FruitaService fruitaService;
+	private final FruitaService fruitaService;
+
+	public FruitaController(FruitaService fruitaService) {
+		this.fruitaService = fruitaService;
+	}
 
 	@PostMapping("/add")
 	public Fruita addFruita(@RequestBody Fruita fruita) {

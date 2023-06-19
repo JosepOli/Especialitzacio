@@ -2,7 +2,6 @@ package model.services;
 
 import org.springframework.stereotype.Service;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import exceptions.FruitaNotFoundException;
 import model.domain.Fruita;
@@ -11,8 +10,11 @@ import model.repository.FruitaRepository;
 @Service
 public class FruitaService {
 
-	@Autowired
-	private FruitaRepository fruitaRepository;
+	private final FruitaRepository fruitaRepository;
+
+	public FruitaService(FruitaRepository fruitaRepository) {
+		this.fruitaRepository = fruitaRepository;
+	}
 
 	public Fruita addFruita(Fruita fruita) { // Afegim una fruita
 		return fruitaRepository.save(fruita);
