@@ -1,17 +1,16 @@
-package cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.controllers;
+package controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
-import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.model.domain.Fruita;
-import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.model.services.FruitaService;
-import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.exceptions.FruitaNotFoundException;
+import exceptions.FruitaNotFoundException;
+import model.domain.Fruita;
+import model.services.FruitaService;
+
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/fruita")
 public class FruitaController {
@@ -43,11 +42,6 @@ public class FruitaController {
 	public List<Fruita> getAllFruita() {
 		return fruitaService.getAllFruita();
 	}
-	@GetMapping("/test")
-	public String test() {
-	    return "Controller is working";
-	}
-
 
 	@ExceptionHandler(FruitaNotFoundException.class)
 	public ResponseEntity<String> handleFruitaNotFound(FruitaNotFoundException ex) {
