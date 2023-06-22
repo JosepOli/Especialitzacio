@@ -1,4 +1,4 @@
-package model.domain;
+package cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.model.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

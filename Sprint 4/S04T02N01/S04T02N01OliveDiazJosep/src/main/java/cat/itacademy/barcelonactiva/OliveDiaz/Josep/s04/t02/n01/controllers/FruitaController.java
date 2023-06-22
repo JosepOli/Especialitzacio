@@ -1,13 +1,14 @@
-package controllers;
+package cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import exceptions.FruitaNotFoundException;
-import model.domain.Fruita;
-import model.services.FruitaService;
+import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.exceptions.FruitaNotFoundException;
+import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.model.domain.Fruita;
+import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.model.services.FruitaService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 

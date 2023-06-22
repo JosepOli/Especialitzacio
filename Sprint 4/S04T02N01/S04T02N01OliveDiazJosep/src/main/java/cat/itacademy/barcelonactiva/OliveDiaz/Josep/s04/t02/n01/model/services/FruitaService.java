@@ -1,12 +1,13 @@
-package model.services;
+package cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.model.services;
 
 import org.springframework.stereotype.Service;
+
+import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.exceptions.FruitaNotFoundException;
+import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.model.domain.Fruita;
+import cat.itacademy.barcelonactiva.OliveDiaz.Josep.s04.t02.n01.model.repository.FruitaRepository;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import exceptions.FruitaNotFoundException;
-import model.domain.Fruita;
-import model.repository.FruitaRepository;
 
 @Service
 public class FruitaService {
