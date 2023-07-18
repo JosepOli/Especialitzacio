@@ -26,7 +26,7 @@ public class FlorController {
 	@PutMapping("/update")
 	public ResponseEntity<FlorDTO> updateFlor(@RequestBody FlorDTO florDTO) {
 		FlorDTO result = florService.updateFlor(florDTO);
-		return new ResponseEntity<>(result, HttpStatus.OK);
+		return ResponseEntity.status(HttpStatus.OK).body(result);
 	}
 
 	@DeleteMapping("/delete/{id}")
