@@ -16,35 +16,42 @@ public class SucursalController {
     @Autowired
     private SucursalService sucursalService;
 
-    @PostMapping("/add")
-    public @ResponseBody Sucursal addSucursal(@RequestBody Sucursal sucursal) {
-        return sucursalService.addSucursal(sucursal);
-    }
-
-    @PutMapping("/update")
-    public @ResponseBody Sucursal updateSucursal(@RequestBody Sucursal sucursal) {
-        return sucursalService.updateSucursal(sucursal);
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public @ResponseBody void deleteSucursal(@PathVariable Integer id) {
-        sucursalService.deleteSucursal(id);
-    }
-
-    @GetMapping("/getOne/{id}")
-    public @ResponseBody Sucursal getSucursal(@PathVariable Integer id) {
-        return sucursalService.getSucursal(id);
-    }
-
-    @GetMapping("/getAll")
-    public @ResponseBody List<Sucursal> getAllSucursals() {
-        return sucursalService.getAllSucursals();
-    }
-
     @GetMapping("/all")
     public String showAllSucursals(Model model) {
         List<Sucursal> sucursals = sucursalService.getAllSucursals();
         model.addAttribute("sucursals", sucursals);
         return "allSucursals";
     }
+
+    @GetMapping("/new") // Form for new Sucursal
+    public String createForm(Model model) {
+        model.addAttribute("sucursal", new Sucursal());
+        return "createForm";
+    }
+
+    @PostMapping("/add") // Submit form for new Sucursal
+    public String createSucursal(@ModelAttribute Sucursal sucursal) {
+        sucursalService.addSucursal(sucursal);
+        return "redirect:/sucursal/all";
+    }
+
+    @GetMapping("/update/{id}") // Form for updating Sucursal
+    public String updateForm(@PathVariable Integer id, Model model) {
+        Sucursal sucursal = sucursalService.getSucursal(id);
+        model.addAttribute("sucursal", sucursal);
+        return "updateForm";
+    }
+
+    @PostMapping("/update") // Submit form for updating Sucursal
+    public String updateSucursal(@ModelAttribute Sucursal sucursal) {
+        sucursalService.updateSucursal(sucursal);
+        return "redirect:/sucursal/all";
+    }
+
+    @GetMapping("/delete/{id}") // Delete a Sucursal and redirect to allSucursals
+    public String deleteSucursal(@PathVariable Integer id) {
+        sucursalService.deleteSucursal(id);
+        return "redirect:/sucursal/all";
+    }
 }
+
