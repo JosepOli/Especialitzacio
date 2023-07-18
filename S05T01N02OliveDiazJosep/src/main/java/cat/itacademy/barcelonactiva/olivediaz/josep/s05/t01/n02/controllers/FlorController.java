@@ -12,12 +12,19 @@ import cat.itacademy.barcelonactiva.olivediaz.josep.s05.t01.n02.model.services.F
 @RequestMapping("/flor")
 public class FlorController {
 
-	 @Autowired
-	    private FlorService florService;
+	@Autowired
+	private FlorService florService;
 
-	    @PostMapping("/add")
-	    public ResponseEntity<FlorDTO> addFlor(@RequestBody FlorDTO florDTO) {
-	        FlorDTO result = florService.addFlor(florDTO);
-	        return new ResponseEntity<>(result, HttpStatus.CREATED);
-	    }
+	@PostMapping("/add")
+	public ResponseEntity<FlorDTO> addFlor(@RequestBody FlorDTO florDTO) {
+		FlorDTO result = florService.addFlor(florDTO);
+		return new ResponseEntity<>(result, HttpStatus.CREATED);
+	}
+
+	@PutMapping("/update")
+	public ResponseEntity<FlorDTO> updateFlor(@RequestBody FlorDTO florDTO) {
+		FlorDTO result = florService.updateFlor(florDTO);
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+
 }
