@@ -1,5 +1,4 @@
 package cat.itacademy.barcelonactiva.olivediaz.josep.s05.t01.n01.model.dto;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,13 +9,13 @@ public class SucursalDTO {
 	private String paisSucursal;
 	private String tipusSucursal;
 	
-	private List<String> paisos = Arrays.asList("Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic",
+	private static final List<String> PAISOS_UE = Arrays.asList("Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic",
 			"Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland", "Italy", "Latvia",
 			"Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovakia", "Slovenia",
 			"Spain", "Sweden");
 
 	public String getTipusSucursal() {
-		return paisos.contains(paisSucursal) ? "UE" : "Fora UE";
+		return PAISOS_UE.contains(paisSucursal) ? "UE" : "Fora UE";
 	}
 
 	public Integer getPk_SucursalID() {
@@ -44,15 +43,11 @@ public class SucursalDTO {
 	}
 
 	public List<String> getPaïsos() {
-		return paisos;
-	}
-
-	public void setPaïsos(List<String> països) {
-		this.paisos = països;
+		return PAISOS_UE;
 	}
 
 	public void setTipusSucursal(String tipusSucursal) {
 		this.tipusSucursal = tipusSucursal;
 	}
-
 }
+
