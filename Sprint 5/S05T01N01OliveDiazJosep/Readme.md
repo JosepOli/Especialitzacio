@@ -32,7 +32,7 @@ To set up the Sucursal Management System, follow these steps:
 
 To use the Sucursal Management System, follow these steps:
 1. Open your web browser
-2. Visit `localhost:8080/sucursal/all` to view all sucursals
+2. Visit `localhost:9000/sucursal/all` to view all sucursals
 3. Use the provided interface to add, update, and delete sucursals
 
 ## Contributing to the Sucursal Management System
