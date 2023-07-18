@@ -32,7 +32,7 @@ public class FlorController {
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Void> deleteFlor(@PathVariable Integer id) {
 		florService.deleteFlor(id);
-		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 
 	@GetMapping("/getOne/{id}")
