@@ -1,12 +1,15 @@
 package cat.itacademy.barcelonactiva.olivediaz.josep.s05.t01.n01.model.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Sucursal {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer pk_SucursalID;
     private String nomSucursal;
     private String paisSucursal;
