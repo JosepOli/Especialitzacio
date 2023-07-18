@@ -20,7 +20,7 @@ public class FlorController {
 	@PostMapping("/add")
 	public ResponseEntity<FlorDTO> addFlor(@RequestBody FlorDTO florDTO) {
 		FlorDTO result = florService.addFlor(florDTO);
-		return new ResponseEntity<>(result, HttpStatus.CREATED);
+		return ResponseEntity.status(HttpStatus.CREATED).body(result);
 	}
 
 	@PutMapping("/update")
