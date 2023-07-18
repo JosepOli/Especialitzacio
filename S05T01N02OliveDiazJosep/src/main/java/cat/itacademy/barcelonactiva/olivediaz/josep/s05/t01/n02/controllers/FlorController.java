@@ -44,9 +44,9 @@ public class FlorController {
 	}
 
 	@GetMapping("/getAll")
-	public ResponseEntity<List<FlorDTO>> getAllFlor() {
-		List<FlorDTO> result = florService.getAllFlor();
-		return new ResponseEntity<>(result, HttpStatus.OK);
-	}
+    public ResponseEntity<List<FlorDTO>> getAllFlor() {
+        List<FlorDTO> result = florService.getAllFlor();
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
 
 }
