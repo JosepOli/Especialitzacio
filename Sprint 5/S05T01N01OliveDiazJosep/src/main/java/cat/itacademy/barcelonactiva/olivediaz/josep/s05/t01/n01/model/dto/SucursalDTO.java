@@ -1,4 +1,5 @@
 package cat.itacademy.barcelonactiva.olivediaz.josep.s05.t01.n01.model.dto;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -7,12 +8,11 @@ public class SucursalDTO {
 	private Integer pk_SucursalID;
 	private String nomSucursal;
 	private String paisSucursal;
-	private String tipusSucursal;
-	
-	private static final List<String> PAISOS_UE = Arrays.asList("Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic",
-			"Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland", "Italy", "Latvia",
-			"Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovakia", "Slovenia",
-			"Spain", "Sweden");
+
+	private static final List<String> PAISOS_UE = Arrays.asList("Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus",
+			"Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland",
+			"Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania",
+			"Slovakia", "Slovenia", "Spain", "Sweden");
 
 	public String getTipusSucursal() {
 		return PAISOS_UE.contains(paisSucursal) ? "UE" : "Fora UE";
@@ -44,10 +44,6 @@ public class SucursalDTO {
 
 	public List<String> getPaïsos() {
 		return PAISOS_UE;
-	}
-
-	public void setTipusSucursal(String tipusSucursal) {
-		this.tipusSucursal = tipusSucursal;
 	}
 }
 
