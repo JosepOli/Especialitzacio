@@ -27,4 +27,10 @@ public class FlorController {
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<Void> deleteFlor(@PathVariable Integer id) {
+		florService.deleteFlor(id);
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+
 }
