@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Sucursals</title>
+</head>
+<body>
+<h1>All Sucursals</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Country</th>
+    </tr>
+    <tr th:each="sucursal : ${sucursals}">
+        <td th:text="${sucursal.pk_SucursalID}"></td>
+        <td th:text="${sucursal.nomSucursal}"></td>
+        <td th:text="${sucursal.paisSucursal}"></td>
+    </tr>
+</table>
+</body>
+</html>
