@@ -39,8 +39,8 @@ public class FlorController {
 	public ResponseEntity<FlorDTO> getOneFlor(@PathVariable Integer id) {
 		FlorDTO result = florService.getOneFlor(id);
 		if (result == null)
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		return new ResponseEntity<>(result, HttpStatus.OK);
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		return ResponseEntity.status(HttpStatus.OK).body(result);
 	}
 
 	@GetMapping("/getAll")
