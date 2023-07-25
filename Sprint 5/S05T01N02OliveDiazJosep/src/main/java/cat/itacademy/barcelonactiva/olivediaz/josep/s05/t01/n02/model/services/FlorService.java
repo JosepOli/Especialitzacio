@@ -12,7 +12,7 @@ import cat.itacademy.barcelonactiva.olivediaz.josep.s05.t01.n02.model.dto.FlorDT
 import cat.itacademy.barcelonactiva.olivediaz.josep.s05.t01.n02.model.repository.FlorRepository;
 
 @Service
-public class FlorService {
+public class FlorService implements FlorServiceInterface{
 
 	@Autowired
 	private FlorRepository florRepository;
