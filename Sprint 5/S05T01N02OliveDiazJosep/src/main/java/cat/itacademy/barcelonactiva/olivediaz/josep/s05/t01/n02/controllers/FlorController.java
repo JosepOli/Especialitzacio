@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.*;
 
 import cat.itacademy.barcelonactiva.olivediaz.josep.s05.t01.n02.model.dto.FlorDTO;
 import cat.itacademy.barcelonactiva.olivediaz.josep.s05.t01.n02.model.services.FlorService;
+import cat.itacademy.barcelonactiva.olivediaz.josep.s05.t01.n02.model.services.FlorServiceInterface;
 
 @RestController
 @RequestMapping("/flor")
 public class FlorController {
 
 	@Autowired
-	private FlorService florService;
+	private FlorServiceInterface florService;
 
 	@PostMapping("/add")
 	public ResponseEntity<FlorDTO> addFlor(@RequestBody FlorDTO florDTO) {
