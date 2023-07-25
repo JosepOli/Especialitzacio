@@ -47,7 +47,7 @@ To contribute to the Sucursal Management System, follow these steps:
 
 ## Contact
 
-If you want to contact me you can reach me at YourEmail@domain.com.
+If you want to contact me you can reach me at josepolive89@gmail.com.
 
 ## License
 
