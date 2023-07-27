@@ -47,6 +47,26 @@ public class PlayerService implements PlayerServiceInterface {
 		return convertToDTO(player);
 	}
 
+	@Override
+	public void deleteGamesByPlayerId(Long playerId) {
+		Player player = playerRepository.findById(playerId)
+				.orElseThrow(() -> new EntityNotFoundException("Player not found"));
+
+		gameRepository.deleteAll(player.getGames());
+	}
+
+	@Override
+	public List<PlayerDTO> getAllPlayers() {
+		return playerRepository.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
+	}
+
+	@Override
+	public PlayerDTO getPlayerById(Long playerId) {
+		Player player = playerRepository.findById(playerId)
+				.orElseThrow(() -> new EntityNotFoundException("Player not found"));
+
+		return convertToDTO(player);
+	}
 
 	private PlayerDTO convertToDTO(Player player) {
 		PlayerDTO playerDTO = new PlayerDTO();
