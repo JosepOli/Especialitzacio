@@ -2,17 +2,17 @@ package Dice.Game.Dice.Game.model.dto;
 
 public class GameDTO {
 
-	private Integer id;
+	private Long id;
 	private int diceOneValue;
 	private int diceTwoValue;
 	private boolean win;
 
 	// Getters and Setters
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

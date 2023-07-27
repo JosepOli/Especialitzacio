@@ -10,9 +10,9 @@ public interface PlayerServiceInterface {
 
 	PlayerDTO updatePlayer(PlayerDTO playerDTO);
 
-	void deleteGamesByPlayerId(Integer playerId);
+	void deleteGamesByPlayerId(Long playerId);
 
 	List<PlayerDTO> getAllPlayers();
 
-	PlayerDTO getPlayerById(Integer playerId);
+	PlayerDTO getPlayerById(Long playerId);
 }
