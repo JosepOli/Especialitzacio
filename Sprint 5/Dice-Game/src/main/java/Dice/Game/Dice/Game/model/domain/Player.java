@@ -2,6 +2,7 @@ package Dice.Game.Dice.Game.model.domain;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,6 +16,11 @@ public class Player {
 
 	@OneToMany(mappedBy = "player")
 	private List<Game> games;
+
+	//Constructor added to avoid null "games" when a player is created
+	public Player() {
+		games = new ArrayList<>();
+	}
 
 	public Long getId() {
 		return id;

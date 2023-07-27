@@ -15,4 +15,11 @@ public interface PlayerServiceInterface {
 	List<PlayerDTO> getAllPlayers();
 
 	PlayerDTO getPlayerById(Long playerId);
+
+	List<PlayerDTO> getRankings();
+
+	PlayerDTO getWinner();
+
+	PlayerDTO getLoser();
+
 }

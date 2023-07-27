@@ -45,4 +45,23 @@ public class PlayerController {
 		PlayerDTO player = playerService.getPlayerById(id);
 		return new ResponseEntity<>(player, HttpStatus.OK);
 	}
+
+	@GetMapping("/ranking")
+	public ResponseEntity<List<PlayerDTO>> getRankings() {
+		List<PlayerDTO> rankings = playerService.getRankings();
+		return new ResponseEntity<>(rankings, HttpStatus.OK);
+	}
+
+	@GetMapping("/ranking/winner")
+	public ResponseEntity<PlayerDTO> getWinner() {
+		PlayerDTO winner = playerService.getWinner();
+		return new ResponseEntity<>(winner, HttpStatus.OK);
+	}
+
+	@GetMapping("/ranking/loser")
+	public ResponseEntity<PlayerDTO> getLoser() {
+		PlayerDTO loser = playerService.getLoser();
+		return new ResponseEntity<>(loser, HttpStatus.OK);
+	}
+
 }

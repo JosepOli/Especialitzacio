@@ -2,6 +2,7 @@ package Dice.Game.Dice.Game.model.services;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,6 +10,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import Dice.Game.Dice.Game.exception.DuplicatePlayerNameException;
 import Dice.Game.Dice.Game.model.domain.Game;
 import Dice.Game.Dice.Game.model.domain.Player;
 import Dice.Game.Dice.Game.model.dto.GameDTO;
@@ -28,6 +30,9 @@ public class PlayerService implements PlayerServiceInterface {
 
 	@Override
 	public PlayerDTO createPlayer(PlayerDTO playerDTO) {
+		if (playerRepository.findByName(playerDTO.getName()).isPresent()) {
+			throw new DuplicatePlayerNameException("Player with name " + playerDTO.getName() + " already exists.");
+		}
 		Player player = new Player();
 		player.setName(playerDTO.getName());
 		player.setRegistrationDate(LocalDateTime.now());
@@ -74,6 +79,10 @@ public class PlayerService implements PlayerServiceInterface {
 		playerDTO.setName(player.getName());
 		playerDTO.setRegistrationDate(Date.from(player.getRegistrationDate().toInstant(ZoneOffset.UTC)));
 		playerDTO.setGames(player.getGames().stream().map(this::convertGameToDTO).collect(Collectors.toList()));
+		long gamesWon = player.getGames().stream().filter(Game::isWin).count();
+		double successRate = (double) gamesWon / player.getGames().size();
+		playerDTO.setSuccessRate(successRate);
+
 		return playerDTO;
 	}
 
@@ -85,4 +94,22 @@ public class PlayerService implements PlayerServiceInterface {
 		gameDTO.setWin(game.isWin());
 		return gameDTO;
 	}
+
+	@Override
+	public List<PlayerDTO> getRankings() {
+		return playerRepository.findAll().stream().map(this::convertToDTO)
+				.sorted(Comparator.comparingDouble(PlayerDTO::getSuccessRate).reversed()).collect(Collectors.toList());
+	}
+
+	@Override
+	public PlayerDTO getWinner() {
+		return getRankings().get(0);
+	}
+
+	@Override
+	public PlayerDTO getLoser() {
+		List<PlayerDTO> rankings = getRankings();
+		return rankings.get(rankings.size() - 1);
+	}
+
 }

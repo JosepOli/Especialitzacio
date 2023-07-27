@@ -9,6 +9,7 @@ public class PlayerDTO {
 	private String name;
 	private Date registrationDate;
 	private List<GameDTO> games;
+	private double successRate;
 
 	// Getters and Setters
 	public Long getId() {
@@ -41,5 +42,13 @@ public class PlayerDTO {
 
 	public void setGames(List<GameDTO> games) {
 		this.games = games;
+	}
+
+	public double getSuccessRate() {
+		return successRate;
+	}
+
+	public void setSuccessRate(double successRate) {
+		this.successRate = successRate;
 	}
 }
