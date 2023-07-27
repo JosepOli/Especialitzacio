@@ -1,32 +1,34 @@
 package Dice.Game.Dice.Game.model.domain;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Document
 public class Player {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String id;
 	private String name;
 	private LocalDateTime registrationDate;
 
-	@OneToMany(mappedBy = "player")
+	@DBRef
 	private List<Game> games;
 
-	//Constructor added to avoid null "games" when a player is created
+	// Constructor added to avoid null "games" when a player is created
 	public Player() {
 		games = new ArrayList<>();
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

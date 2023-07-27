@@ -1,26 +1,26 @@
 package Dice.Game.Dice.Game.model.domain;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
-@Entity
+@Document
 public class Game {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String id;
 	private int dice1;
 	private int dice2;
 	private boolean win;
 
-	@ManyToOne
-	@JoinColumn(name = "player_id", nullable = false)
+	@DBRef
 	private Player player;
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
