@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Dice Game</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
+
+		#players {
+			margin-top: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Dice Game</h1>
+
+	<div id="players"></div>
+
+	<script>
+		const API_URL = 'http://localhost:8080';
+
+		window.onload = () => {
+			fetchPlayers();
+		};
+
+		function fetchPlayers() {
+			fetch(`${API_URL}/players`)
+				.then(response => response.json())
+				.then(players => {
+					const playersDiv = document.getElementById('players');
+					playersDiv.innerHTML = '';
+					players.forEach(player => {
+						playersDiv.innerHTML += `
+                            <p>
+                                Name: ${player.name} <br>
+                                Registration date: ${new Date(player.registrationDate).toLocaleDateString()} <br>
+                                Success rate: ${player.successRate}%
+                            </p>
+                            <hr>
+                        `;
+					});
+				})
+				.catch(error => console.error('Error:', error));
+		}
+	</script>
+</body>
+
+</html>
