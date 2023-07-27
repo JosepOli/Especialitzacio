@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Dice Game</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
+
+		.container {
+			width: 80%;
+			margin: auto;
+		}
+
+		.player-form {
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Dice Game</h1>
+
+		<div class="player-form">
+			<h2>Create Player</h2>
+			<form action="#" th:action="@{/players}" method="post">
+				<input type="text" th:name="name" placeholder="Enter player name" required>
+				<button type="submit">Create</button>
+			</form>
+		</div>
+
+		<div class="player-list">
+			<h2>Players</h2>
+			<ul th:each="player : ${players}">
+				<li th:text="${player.name}"></li>
+			</ul>
+		</div>
+	</div>
+</body>
+
+</html>
