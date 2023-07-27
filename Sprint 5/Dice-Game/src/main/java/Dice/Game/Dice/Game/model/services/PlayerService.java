@@ -36,4 +36,33 @@ public class PlayerService implements PlayerServiceInterface {
 		return convertToDTO(player);
 	}
 
+	@Override
+	public PlayerDTO updatePlayer(PlayerDTO playerDTO) {
+		Player player = playerRepository.findById(playerDTO.getId())
+				.orElseThrow(() -> new EntityNotFoundException("Player not found"));
+
+		player.setName(playerDTO.getName());
+		player = playerRepository.save(player);
+
+		return convertToDTO(player);
+	}
+
+
+	private PlayerDTO convertToDTO(Player player) {
+		PlayerDTO playerDTO = new PlayerDTO();
+		playerDTO.setId(player.getId());
+		playerDTO.setName(player.getName());
+		playerDTO.setRegistrationDate(Date.from(player.getRegistrationDate().toInstant(ZoneOffset.UTC)));
+		playerDTO.setGames(player.getGames().stream().map(this::convertGameToDTO).collect(Collectors.toList()));
+		return playerDTO;
+	}
+
+	private GameDTO convertGameToDTO(Game game) {
+		GameDTO gameDTO = new GameDTO();
+		gameDTO.setId(game.getId());
+		gameDTO.setDiceOneValue(game.getDice1());
+		gameDTO.setDiceTwoValue(game.getDice2());
+		gameDTO.setWin(game.isWin());
+		return gameDTO;
+	}
 }
