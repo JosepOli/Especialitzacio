@@ -80,7 +80,7 @@ public class PlayerService implements PlayerServiceInterface {
 		playerDTO.setRegistrationDate(Date.from(player.getRegistrationDate().toInstant(ZoneOffset.UTC)));
 		playerDTO.setGames(player.getGames().stream().map(this::convertGameToDTO).collect(Collectors.toList()));
 		long gamesWon = player.getGames().stream().filter(Game::isWin).count();
-		double successRate = (double) gamesWon / player.getGames().size();
+		double successRate = (player.getGames().size() == 0) ? 0.0 : (double) gamesWon / player.getGames().size();
 		playerDTO.setSuccessRate(successRate);
 
 		return playerDTO;
