@@ -108,7 +108,13 @@ public class PlayerService implements PlayerServiceInterface {
 
 	@Override
 	public PlayerDTO getLoser() {
-		List<PlayerDTO> rankings = getRankings();
+		List<PlayerDTO> rankings = getRankings().stream().filter(playerDTO -> !playerDTO.getGames().isEmpty())
+				.collect(Collectors.toList());
+
+		if (rankings.isEmpty()) {
+			throw new EntityNotFoundException("No players have played any games yet");
+		}
+
 		return rankings.get(rankings.size() - 1);
 	}
 
