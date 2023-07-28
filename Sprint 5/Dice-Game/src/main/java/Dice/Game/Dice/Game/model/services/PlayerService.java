@@ -11,13 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Dice.Game.Dice.Game.exception.DuplicatePlayerNameException;
+import Dice.Game.Dice.Game.exception.EntityNotFoundException;
 import Dice.Game.Dice.Game.model.domain.Game;
 import Dice.Game.Dice.Game.model.domain.Player;
 import Dice.Game.Dice.Game.model.dto.GameDTO;
 import Dice.Game.Dice.Game.model.dto.PlayerDTO;
 import Dice.Game.Dice.Game.model.repository.GameRepository;
 import Dice.Game.Dice.Game.model.repository.PlayerRepository;
-import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class PlayerService implements PlayerServiceInterface {
@@ -53,7 +53,7 @@ public class PlayerService implements PlayerServiceInterface {
 	}
 
 	@Override
-	public void deleteGamesByPlayerId(Long playerId) {
+	public void deleteGamesByPlayerId(String playerId) {
 		Player player = playerRepository.findById(playerId)
 				.orElseThrow(() -> new EntityNotFoundException("Player not found"));
 
@@ -66,7 +66,7 @@ public class PlayerService implements PlayerServiceInterface {
 	}
 
 	@Override
-	public PlayerDTO getPlayerById(Long playerId) {
+	public PlayerDTO getPlayerById(String playerId) {
 		Player player = playerRepository.findById(playerId)
 				.orElseThrow(() -> new EntityNotFoundException("Player not found"));
 
@@ -80,7 +80,7 @@ public class PlayerService implements PlayerServiceInterface {
 		playerDTO.setRegistrationDate(Date.from(player.getRegistrationDate().toInstant(ZoneOffset.UTC)));
 		playerDTO.setGames(player.getGames().stream().map(this::convertGameToDTO).collect(Collectors.toList()));
 		long gamesWon = player.getGames().stream().filter(Game::isWin).count();
-		double successRate = (double) gamesWon / player.getGames().size();
+		double successRate = (player.getGames().size() == 0) ? 0.0 : (double) gamesWon / player.getGames().size();
 		playerDTO.setSuccessRate(successRate);
 
 		return playerDTO;

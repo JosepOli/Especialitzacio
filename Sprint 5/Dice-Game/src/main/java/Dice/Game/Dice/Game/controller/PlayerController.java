@@ -29,7 +29,7 @@ public class PlayerController {
 	}
 
 	@DeleteMapping("/{id}/games")
-	public ResponseEntity<?> deleteGamesByPlayerId(@PathVariable Long id) {
+	public ResponseEntity<?> deleteGamesByPlayerId(@PathVariable String id) {
 		playerService.deleteGamesByPlayerId(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
@@ -41,7 +41,7 @@ public class PlayerController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<PlayerDTO> getPlayerById(@PathVariable Long id) {
+	public ResponseEntity<PlayerDTO> getPlayerById(@PathVariable String id) {
 		PlayerDTO player = playerService.getPlayerById(id);
 		return new ResponseEntity<>(player, HttpStatus.OK);
 	}

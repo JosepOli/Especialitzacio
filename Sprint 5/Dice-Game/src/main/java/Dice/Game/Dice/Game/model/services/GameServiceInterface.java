@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface GameServiceInterface {
 
-	GameDTO createGame(Long playerId);
+	GameDTO createGame(String playerId);
 
-	List<GameDTO> getGamesByPlayerId(Long playerId);
+	List<GameDTO> getGamesByPlayerId(String playerId);
 }

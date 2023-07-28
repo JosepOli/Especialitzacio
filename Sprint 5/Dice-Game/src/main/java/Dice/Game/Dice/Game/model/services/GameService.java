@@ -7,12 +7,12 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import Dice.Game.Dice.Game.exception.EntityNotFoundException;
 import Dice.Game.Dice.Game.model.domain.Game;
 import Dice.Game.Dice.Game.model.domain.Player;
 import Dice.Game.Dice.Game.model.dto.GameDTO;
 import Dice.Game.Dice.Game.model.repository.GameRepository;
 import Dice.Game.Dice.Game.model.repository.PlayerRepository;
-import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class GameService implements GameServiceInterface {
@@ -26,8 +26,8 @@ public class GameService implements GameServiceInterface {
     private Random random = new Random();
 
     @Override
-    public GameDTO createGame(Long playerId) {
-        Player player = playerRepository.findById(playerId.longValue())
+    public GameDTO createGame(String playerId) {
+        Player player = playerRepository.findById(playerId)
                 .orElseThrow(() -> new EntityNotFoundException("Player not found"));
 
         Game game = new Game();
@@ -41,8 +41,8 @@ public class GameService implements GameServiceInterface {
     }
 
     @Override
-    public List<GameDTO> getGamesByPlayerId(Long playerId) {
-        Player player = playerRepository.findById(playerId.longValue())
+    public List<GameDTO> getGamesByPlayerId(String playerId) {
+        Player player = playerRepository.findById(playerId)
                 .orElseThrow(() -> new EntityNotFoundException("Player not found"));
 
         return player.getGames().stream()

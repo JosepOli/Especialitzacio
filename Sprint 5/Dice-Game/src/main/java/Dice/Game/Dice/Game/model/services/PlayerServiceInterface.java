@@ -10,11 +10,11 @@ public interface PlayerServiceInterface {
 
 	PlayerDTO updatePlayer(PlayerDTO playerDTO);
 
-	void deleteGamesByPlayerId(Long playerId);
+	void deleteGamesByPlayerId(String playerId);
 
 	List<PlayerDTO> getAllPlayers();
 
-	PlayerDTO getPlayerById(Long playerId);
+	PlayerDTO getPlayerById(String playerId);
 
 	List<PlayerDTO> getRankings();
 

@@ -5,18 +5,18 @@ import java.util.List;
 
 public class PlayerDTO {
 
-	private Long id;
+	private String id;
 	private String name;
 	private Date registrationDate;
 	private List<GameDTO> games;
 	private double successRate;
 
 	// Getters and Setters
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

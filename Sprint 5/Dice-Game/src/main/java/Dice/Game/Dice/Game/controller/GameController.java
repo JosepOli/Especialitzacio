@@ -17,13 +17,13 @@ public class GameController {
 	private GameServiceInterface gameService;
 
 	@PostMapping
-	public ResponseEntity<GameDTO> createGame(@PathVariable Long id) {
+	public ResponseEntity<GameDTO> createGame(@PathVariable String id) {
 		GameDTO game = gameService.createGame(id);
 		return new ResponseEntity<>(game, HttpStatus.CREATED);
 	}
 
 	@GetMapping
-	public ResponseEntity<List<GameDTO>> getGamesByPlayerId(@PathVariable Long id) {
+	public ResponseEntity<List<GameDTO>> getGamesByPlayerId(@PathVariable String id) {
 		List<GameDTO> games = gameService.getGamesByPlayerId(id);
 		return new ResponseEntity<>(games, HttpStatus.OK);
 	}
