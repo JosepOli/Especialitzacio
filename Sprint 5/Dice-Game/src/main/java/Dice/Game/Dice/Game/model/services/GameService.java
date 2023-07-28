@@ -17,45 +17,47 @@ import Dice.Game.Dice.Game.model.repository.PlayerRepository;
 @Service
 public class GameService implements GameServiceInterface {
 
-    @Autowired
-    private PlayerRepository playerRepository;
+	@Autowired
+	private PlayerRepository playerRepository;
 
-    @Autowired
-    private GameRepository gameRepository;
+	@Autowired
+	private GameRepository gameRepository;
 
-    private Random random = new Random();
+	private Random random = new Random();
 
-    @Override
-    public GameDTO createGame(String playerId) {
-        Player player = playerRepository.findById(playerId)
-                .orElseThrow(() -> new EntityNotFoundException("Player not found"));
+	@Override
+	public GameDTO createGame(String playerId) {
+		Player player = playerRepository.findById(playerId)
+				.orElseThrow(() -> new EntityNotFoundException("Player not found"));
 
-        Game game = new Game();
-        game.setPlayer(player);
-        game.setDice1(random.nextInt(6) + 1);
-        game.setDice2(random.nextInt(6) + 1);
-        game.setWin(game.getDice1() + game.getDice2() == 7);
-        game = gameRepository.save(game);
+		Game game = new Game();
+		game.setPlayer(player);
+		game.setDice1(random.nextInt(6) + 1);
+		game.setDice2(random.nextInt(6) + 1);
+		game.setWin(game.getDice1() + game.getDice2() == 7);
+		game = gameRepository.save(game);
 
-        return convertToDTO(game);
-    }
+		// Update the player's games list and save the player
+		player.getGames().add(game);
+		playerRepository.save(player);
 
-    @Override
-    public List<GameDTO> getGamesByPlayerId(String playerId) {
-        Player player = playerRepository.findById(playerId)
-                .orElseThrow(() -> new EntityNotFoundException("Player not found"));
+		return convertToDTO(game);
+	}
 
-        return player.getGames().stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
-    }
+	@Override
+	public List<GameDTO> getGamesByPlayerId(String playerId) {
+		Player player = playerRepository.findById(playerId)
+				.orElseThrow(() -> new EntityNotFoundException("Player not found"));
 
-    private GameDTO convertToDTO(Game game) {
-        GameDTO gameDTO = new GameDTO();
-        gameDTO.setId(game.getId());
-        gameDTO.setDiceOneValue(game.getDice1());
-        gameDTO.setDiceTwoValue(game.getDice2());
-        gameDTO.setWin(game.isWin());
-        return gameDTO;
-    }
+		return player.getGames().stream().map(this::convertToDTO).collect(Collectors.toList());
+	}
+
+	private GameDTO convertToDTO(Game game) {
+		GameDTO gameDTO = new GameDTO();
+		gameDTO.setId(game.getId());
+		gameDTO.setDiceOneValue(game.getDice1());
+		gameDTO.setDiceTwoValue(game.getDice2());
+		gameDTO.setWin(game.isWin());
+		return gameDTO;
+	}
 }
