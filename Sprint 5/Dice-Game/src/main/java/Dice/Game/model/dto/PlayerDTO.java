@@ -1,4 +1,4 @@
-package Dice.Game.Dice.Game.model.dto;
+package Dice.Game.model.dto;
 
 import java.util.Date;
 import java.util.List;

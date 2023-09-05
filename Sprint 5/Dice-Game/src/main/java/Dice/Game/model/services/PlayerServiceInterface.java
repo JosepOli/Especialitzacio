@@ -1,8 +1,8 @@
-package Dice.Game.Dice.Game.model.services;
-
-import Dice.Game.Dice.Game.model.dto.PlayerDTO;
+package Dice.Game.model.services;
 
 import java.util.List;
+
+import Dice.Game.model.dto.PlayerDTO;
 
 public interface PlayerServiceInterface {
 

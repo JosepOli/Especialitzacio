@@ -1,10 +1,10 @@
-package Dice.Game.Dice.Game.model.repository;
+package Dice.Game.model.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import Dice.Game.Dice.Game.model.domain.Player;
+import Dice.Game.model.domain.Player;
 
 public interface PlayerRepository extends MongoRepository<Player, String> {
 

@@ -1,4 +1,4 @@
-package Dice.Game.Dice.Game.model.dto;
+package Dice.Game.model.dto;
 
 public class GameDTO {
 

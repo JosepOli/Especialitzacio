@@ -1,11 +1,12 @@
-package Dice.Game.Dice.Game.controller;
+package Dice.Game.controller;
 
-import Dice.Game.Dice.Game.model.dto.GameDTO;
-import Dice.Game.Dice.Game.model.services.GameServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import Dice.Game.model.dto.GameDTO;
+import Dice.Game.model.services.GameServiceInterface;
 
 import java.util.List;
 
