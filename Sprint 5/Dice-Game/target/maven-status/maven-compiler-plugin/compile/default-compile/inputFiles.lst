@@ -1,0 +1,17 @@
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\controller\GameController.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\exception\EntityNotFoundException.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\model\dto\PlayerDTO.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\model\services\PlayerServiceInterface.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\model\dto\GameDTO.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\model\services\GameServiceInterface.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\security\SecurityConfig.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\DiceGameApplication.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\model\repository\GameRepository.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\model\domain\Player.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\model\repository\PlayerRepository.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\model\services\GameService.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\model\domain\Game.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\security\AudienceValidator.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\controller\PlayerController.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\model\services\PlayerService.java
+C:\Users\TeH_h\Documents\GitHub\Especialitzacio\Sprint 5\Dice-Game\src\main\java\Dice\Game\exception\DuplicatePlayerNameException.java
